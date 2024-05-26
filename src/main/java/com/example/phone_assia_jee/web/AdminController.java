@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
+import jakarta.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -56,20 +57,31 @@ public class AdminController {
     }
 
     @GetMapping("/products/edit/{id}")
-    public String showEditProductForm(@PathVariable Long id, Model model) {
+    public String showEditProductForm(@PathVariable("id") Long id, Model model) {
         Product product = productService.getProductById(id);
         model.addAttribute("product", product);
         return "admin-product-edit";
     }
 
     @PostMapping("/products/edit/{id}")
-    public String editProduct(@PathVariable Long id, @ModelAttribute Product product) {
-        productService.updateProduct(id, product);
+    public String editProduct(@PathVariable("id") Long id,  @ModelAttribute("product") @Valid Product updatedProduct) {
+        Product originalProduct = productService.getProductById(id);
+        // Update the properties of the original task list with the values from the updated task list
+        originalProduct.setName(updatedProduct.getName());
+        originalProduct.setDescription(updatedProduct.getDescription());
+        originalProduct.setPrice(updatedProduct.getPrice());
+        originalProduct.setImageUrl(updatedProduct.getImageUrl());
+        originalProduct.setStock(updatedProduct.getStock());
+
+        // Save the updated task list
+        productService.addProduct(originalProduct);
         return "redirect:/admin/products";
     }
 
+
+
     @PostMapping("/products/delete/{id}")
-    public String deleteProduct(@PathVariable Long id) {
+    public String deleteProduct(@PathVariable("id")  Long id) {
         productService.deleteProduct(id);
         return "redirect:/admin/products";
     }
