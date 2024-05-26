@@ -29,6 +29,7 @@ public class ProductService {
         if (existingProduct != null) {
             existingProduct.setName(updatedProduct.getName());
             existingProduct.setPrice(updatedProduct.getPrice());
+            existingProduct.setImageUrl(updatedProduct.getImageUrl());
             existingProduct.setDescription(updatedProduct.getDescription());
             existingProduct.setStock(updatedProduct.getStock());
             return productRepository.save(existingProduct);
