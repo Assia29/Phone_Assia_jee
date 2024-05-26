@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Assurez-vous d'avoir un fichier styles.css lié -->
+<style>
+    /* styles.css */
+
+    /* Style pour le conteneur principal */
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Style pour le titre des détails du produit */
+    h1 {
+        text-align: center;
+    }
+
+    /* Style pour la zone des détails du produit */
+    .product-details {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    /* Style pour les informations du produit */
+    .product-info {
+        flex: 1;
+    }
+
+    /* Style pour l'image du produit */
+    .product-image {
+        flex: 1;
+    }
+
+    /* Style pour le bouton "Back to Product List" */
+    .btn-back {
+        display: block;
+        width: 150px;
+        margin: 20px auto;
+        text-align: center;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    /* Style pour le survol du bouton */
+    .btn-back:hover {
+        background-color: #0056b3;
+    }
+
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Product Details</h1>
+    <div class="product-details">
+        <div class="product-info">
+            <h2>Name: Product Name</h2>
+            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et massa eget magna mollis bibendum vel sit amet lorem.</p>
+            <p>Price: $50</p>
+        </div>
+        <div class="product-image">
+            <img src="product-image.jpg" alt="Product Image">
+        </div>
+    </div>
+    <a href="product-list.html" class="btn-back">Back to Product List</a>
+</div>
+</body>
+</html>
