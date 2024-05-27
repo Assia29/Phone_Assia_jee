@@ -37,6 +37,7 @@ public class AdminController {
         }
     }
 
+
     @GetMapping("/products")
     public String listProducts(Model model) {
         List<Product> products = productService.getAllProducts();
