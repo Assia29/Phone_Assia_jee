@@ -28,6 +28,10 @@ public class Cart {
     @OneToMany
     private List<Product> products;
 
+    public Cart(User user) {
+        this.user = user;
+    }
 
-
+    public void addProduct(Product product) {
+    }
 }

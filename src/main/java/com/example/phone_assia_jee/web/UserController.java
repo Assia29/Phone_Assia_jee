@@ -51,7 +51,7 @@ public class UserController {
             // Login successful
             session.setAttribute("loggedInUser", user);
             model.addAttribute("username", username);
-            return "redirect:/test";
+            return "redirect:/products/product-list";
         } else {
             // Login failed
             model.addAttribute("error", "Invalid username or password.");
